@@ -8,127 +8,98 @@ import io
 # Set up Streamlit page
 st.set_page_config(page_title="Legal Document Analyst App", layout="wide")
 
-# ===============================
-#   SWANKY AF UI STYLING (CSS)
-# ===============================
+# ======================
+#  SWANKY UI STYLING
+# ======================
 st.markdown(
     """
     <style>
-    /* 
-      1) Animated Gradient Background
-      2) Frosted Glass Container
-      3) Neon Glow Text
-      4) Elevated Buttons
-    */
+    /* Import a classy, modern font */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 
     /* 
-       1) ANIMATED GRADIENT BACKGROUND 
-         - We'll make the entire page swirl through colors over 12s
-    */
+       Overall theme:
+       - A repeating diagonal gradient background
+       - Clean white container area
+       - Subtle drop shadows
+       - Accented text and buttons
+     */
+
+    /* Page background pattern */
     body {
-        background: linear-gradient(135deg, #EF5DA8, #845EF7, #5D5FEF, #EF895D);
-        background-size: 400% 400%;
-        animation: gradient-bg 12s ease infinite;
+        background: repeating-linear-gradient(
+            45deg,
+            #f3f6f9,
+            #f3f6f9 20px,
+            #e2e8ef 20px,
+            #e2e8ef 40px
+        ) !important;
+        background-attachment: fixed;
+    }
+    
+    /* Use Roboto Slab for a modern look */
+    html, body, [class*="css"]  {
+        font-family: 'Roboto Slab', serif;
+        /* The repeating gradient above sets the background pattern */
         margin: 0;
         padding: 0;
     }
-    @keyframes gradient-bg {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
 
-    /* 
-       2) FROSTED GLASS CONTAINER 
-         - The .main > div target includes our Streamlit "card" containers.
-         - We'll add a backdrop-filter for a 'glass' effect plus a translucent background.
-    */
+    /* Main content area styling (the 'cards') */
     .main > div {
-        background-color: rgba(255, 255, 255, 0.25) !important;
-        backdrop-filter: blur(12px);
-        border-radius: 20px;
-        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-        color: #fff;
-        margin: 1rem 0;
+        background-color: #ffffff;
         padding: 2rem;
+        margin: 1rem 0;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    /* 
-       3) NEON GLOW HEADINGS 
-         - We'll give the headings a subtle neon glow and bright color
-    */
+    /* Headers styling */
     h1, h2, h3, h4 {
-        color: #ffffff;
-        text-shadow:
-          0 0 6px rgba(255, 255, 255, 0.5),
-          0 0 12px rgba(255, 255, 255, 0.3);
-        margin-bottom: 1rem;
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
     }
 
-    /* 
-       Use a clean modern font
-    */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600&display=swap');
-    html, body, [class*="css"] {
-        font-family: 'Roboto Slab', serif;
+    /* Style text areas and inputs */
+    .stTextArea, .stTextInput {
+        border-radius: 8px;
+        border: 1px solid #dcdcdc;
     }
 
-    /* 
-       Inputs and text areas with a subtle glow / frosted effect as well
-    */
-    .stTextArea, .stTextInput, .css-19ih76x, .css-ffhzg2, .css-1r51q1k {
-        background-color: rgba(255, 255, 255, 0.2) !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        border-radius: 10px !important;
-        color: #fff !important;
-    }
-
-    /* 
-       4) ELEVATED PRIMARY BUTTONS 
-    */
+    /* Stylish buttons */
     button[kind="primary"] {
-        background: linear-gradient(135deg, #845EF7 0%, #5D5FEF 100%) !important;
+        background-color: #1f77b4 !important;
+        border-radius: 8px !important;
+        color: white !important;
         border: none !important;
-        color: #fff !important;
-        border-radius: 12px !important;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        transition: transform 0.2s ease;
-    }
-    button[kind="primary"]:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
-    /* 
-       File Uploader 
-    */
+    /* File uploader area */
     .stFileUploader > label {
-        color: #ffffff;
+        color: #1f77b4;
         font-weight: 600;
     }
+
+    /* Make the file uploader box stand out */
     .css-1fcdlh2 {
-        background-color: rgba(255, 255, 255, 0.15) !important;
-        border: 2px dashed rgba(255, 255, 255, 0.4) !important;
+        background-color: #fafafa;
+        border: 2px dashed #d3d3d3;
     }
 
-    /* 
-       SIDEBAR 
-         - Make it partially transparent to show off the background
-    */
+    /* Sidebar styling: a slightly opaque background overlay */
     .css-1d391kg {
-        background-color: rgba(0, 0, 0, 0.3) !important;
-        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.7) !important;
     }
+    
+    /* Tweak sidebar headings, etc. */
     .css-h4m289 {
-        color: #ffffff !important;
+        color: #2c3e50 !important;
     }
 
-    /* 
-       We'll also ensure normal text is more readable
-    */
-    .stMarkdown, .stText, .stRadio, .css-1h2q7hz {
-        color: #ffffff;
-    }
+    /* Optional: Hide Streamlit branding, menu (if desired) */
+    /* .css-1lsmgbg e1fqkh3o1 { visibility: hidden; } */
+    /* .css-1f9o3k2 { visibility: hidden; } */
     </style>
     """,
     unsafe_allow_html=True
@@ -208,7 +179,7 @@ default_prompt = (
     "easy-to-read format using markdown. This does not constitute formal legal advice."
 )
 
-# We'll always use the default prompt for the main analysis
+# We’ll always use the default prompt for the main analysis
 prompt = default_prompt
 
 # Layout with two columns
