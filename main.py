@@ -156,7 +156,7 @@ st.header("AI-Powered Legal Document Analyst")
 # Brief description or disclaimer
 st.markdown(
     """
-    Discover the future of legal review with our cutting-edge **AI-powered Legal Document Analyst** platform. Upload any document and instantly receive concise, expertly curated insights, from key clauses to strategic implications. Enjoy a sleek, intuitive interface, rapid text extraction, and on-demand bullet-point summaries—all designed to streamline complex legal work and delight your workflow.
+    Unleash the Future of Legal Tech! Build a full-stack Legal Document Analyst from scratch—craft a sleek Streamlit front-end and a powerful back-end using PyPDF2, python-docx, and Google Gemini. Conquer the learning curve of cutting-edge NLP to transform dense legal texts into clear, actionable insights. Ideal for students eager to elevate their tech skills—dive in and connect with BetterMind Labs for more AI-powered excellence.
     """
 )
 
