@@ -156,7 +156,7 @@ st.header("AI-Powered Legal Document Analyst")
 # Brief description or disclaimer
 st.markdown(
     """
-    **Unleash the Future of Legal Tech!** Build a full-stack Legal Document Analyst from scratch—craft a sleek Streamlit front-end and a powerful back-end using **Python** libraries like PyPDF2, python-docx, and **cutting edge** AI powered by **Google Gemini**. Conquer the learning curve of cutting-edge NLP to transform dense legal texts into clear, actionable insights. Ideal for students eager to elevate their tech skills—dive in and connect with BetterMind Labs for more AI-powered excellence.
+    **Unleash the Future of Legal Tech!** Build a full-stack Legal Document Analyst from scratch—craft a sleek Streamlit front-end and a powerful back-end using **Python** libraries like PyPDF2, python-docx, and AI powered by **Google Gemini**. Conquer the learning curve of **cutting-edge Natural Language Processing** to transform dense legal texts into clear, actionable insights. Ideal for students eager to elevate their tech skills—dive in and connect with **BetterMind Labs** for more AI-powered excellence.
     """
 )
 
