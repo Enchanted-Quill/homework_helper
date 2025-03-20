@@ -24,16 +24,15 @@ st.markdown(
      */
 
     /* Page background pattern */
-    body {
-        background: repeating-linear-gradient(
-            45deg,
-            #f3f6f9,
-            #f3f6f9 20px,
-            #e2e8ef 20px,
-            #e2e8ef 40px
-        ) !important;
-        background-attachment: fixed;
-    }
+    
+[data-testid="stAppViewContainer"] {{
+    background: url("{image_url}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}}
+
     
     /* Use Roboto Slab for a modern look */
     html, body, [class*="css"]  {
