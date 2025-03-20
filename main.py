@@ -4,7 +4,7 @@ from PyPDF2 import PdfReader
 import docx
 import google.generativeai as genai
 import io
-
+st.set_page_config(page_title="Legal Document Analyst App", layout="wide")
 # ======================
 #  SWANKY UI STYLING
 # ======================
@@ -101,7 +101,7 @@ def get_gemini_response_image(image, prompt):
 # ======================
 #   STREAMLIT APP
 # ======================
-st.set_page_config(page_title="Legal Document Analyst App", layout="wide")
+
 
 # Main heading
 st.header("AI-Powered Legal Document Analyst")
