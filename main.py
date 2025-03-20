@@ -8,9 +8,7 @@ import io
 # Set up Streamlit page
 st.set_page_config(page_title="Legal Document Analyst App", layout="wide")
 
-# ======================
-#  SWANKY UI STYLING
-# ======================
+
 st.markdown(
     """
     <style>
@@ -159,8 +157,7 @@ st.header("AI-Powered Legal Document Analyst")
 # Brief description or disclaimer
 st.markdown(
     """
-    **Disclaimer:** This app provides generalized analysis of legal/policy documents.
-    It is **not** a substitute for professional legal counsel.
+    Discover the future of legal review with our cutting-edge **AI-powered Legal Document Analyst** platform. Upload any document and instantly receive concise, expertly curated insights, from key clauses to strategic implications. Enjoy a sleek, intuitive interface, rapid text extraction, and on-demand bullet-point summaries—all designed to streamline complex legal work and delight your workflow.
     """
 )
 
