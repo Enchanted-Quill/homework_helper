@@ -38,7 +38,7 @@ def get_gemini_response_image(image, prompt):
     return response.text
 
 #Streamlit app configuration
-st.set_page_config(page_title="Homework Completion App", layout="wide")
+st.set_page_config(page_title="Your Personal Homework Helper", layout="wide")
 st.header("AI-Powered Homework Completion App")
 
 # File upload
@@ -100,5 +100,5 @@ if uploaded_file:
             st.error(f"An error occurred: {e}")
 
 # Footer
-st.sidebar.write("Powered by Google Gemini and Streamlit.")
+st.sidebar.write("Powered by Google Gemini and Streamlit. Idea, code, and tutorial from Amaan AI, modified by Evelyn Qiao.")
 
